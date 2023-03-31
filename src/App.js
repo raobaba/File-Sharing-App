@@ -8,8 +8,13 @@ function App() {
        fileInputRef.current.click();
   }
   useEffect(()=>{
-
-  },[])
+    const getImage = ()=>{
+      const data = new FormData();
+      data.append('name',file.name);
+      data.append('file',file);
+    }
+    getImage();
+  },[file])
   return (
     <div className="Container">
         <img src={url} alt='logo' />
