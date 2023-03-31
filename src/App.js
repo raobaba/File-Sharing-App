@@ -1,5 +1,6 @@
 import './App.css';
 import {useRef,useState,useEffect} from 'react';
+import { uploadFile } from './Services/api';
 function App() {
   const [file,setFile] = useState('');
   const fileInputRef = useRef();
@@ -12,6 +13,8 @@ function App() {
       const data = new FormData();
       data.append('name',file.name);
       data.append('file',file);
+
+      uploadFile();
     }
     getImage();
   },[file])
