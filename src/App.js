@@ -9,12 +9,12 @@ function App() {
        fileInputRef.current.click();
   }
   useEffect(()=>{
-    const getImage = ()=>{
+    const getImage =async ()=>{
       const data = new FormData();
       data.append('name',file.name);
       data.append('file',file);
 
-      uploadFile();
+    let res = await uploadFile(data);
     }
     getImage();
   },[file])
